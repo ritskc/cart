@@ -1,0 +1,10 @@
+.customerbox{
+    border: 10;
+    border-style:groove;
+    border-color:yellow;  
+    color: white;
+    padding-left: 10;
+    font-style:bold;
+    margin: 10;
+    background-color: blue;
+}
