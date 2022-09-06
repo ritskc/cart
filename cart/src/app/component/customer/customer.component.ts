@@ -40,4 +40,9 @@ export class CustomerComponent implements OnInit {
     this.title="Main angluar app";
   }
 
+  onViewDetail()
+  {
+    alert('view detail clicked');
+  }
+
 }

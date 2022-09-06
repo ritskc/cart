@@ -8,3 +8,9 @@
     margin: 10;
     background-color: blue;
 }
+.buttonStyle{
+    align-items: center;
+    align-content: center;
+    background-color: yellow;
+    font-size: medium;
+}
