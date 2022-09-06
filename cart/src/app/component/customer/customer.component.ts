@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { observable, Observable } from 'rxjs';
 import { Customer } from 'src/app/model/customer.model';
 import { CustomerService } from 'src/app/services/customer.service';
@@ -13,13 +13,18 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
+  @Input()
+  public title:string='';
   public customers: Customer[];
   public customers$ : Observable<Customer[]>;
+
+  @Input()
   public customer: Customer;
   constructor(private customerService:CustomerService) { 
     this.customers = new Array<Customer>();
     this.customers$ =  new Observable<Customer[]>();
     this.customer = new Customer();
+    
   }
 
   ngOnInit(): void {
@@ -32,7 +37,7 @@ export class CustomerComponent implements OnInit {
    this.customer.city="Brampton";
 
    this.customers.push(this.customer);
-    
+    this.title="Main angluar app";
   }
 
 }

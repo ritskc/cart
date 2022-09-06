@@ -1,9 +1,16 @@
 <div >
+    <h1>
+        {{ title }}
+    </h1>
+
+    <h1>
+        {{customer.name}}
+    </h1>
     <h1>{{customer.name}}</h1>
     <p>{{customer.addressLine1}}</p>
     <p>{{customer.city}}</p>
     <p>{{customer.state}}</p>
-    
+
     <div class="customerbox" *ngFor="let customer of (customers$ |async)"   >
         <h1>{{customer.name}}</h1>
         <p>{{customer.addressLine1}}</p>
