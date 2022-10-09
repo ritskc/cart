@@ -11,14 +11,16 @@ import { CustomerService } from './services/customer.service';
 })
 export class AppComponent implements OnInit {
   title = 'cart';
-  public cust: Observable<Customer[]>;
-  public customers: Customer[];
-  public customer:Customer;
+  coreCustomer:Customer=new Customer();
+  items = ['item1', 'item2', 'item3', 'item4'];
+ // public cust: Observable<Customer[]>;
+  //public customers: Customer[];
+  //public customer:Customer;
   constructor(private http:HttpClient,private customerService:CustomerService)
   {
-    this.cust = new Observable<Customer[]>();
-    this.customers = new Array<Customer>();
-    this.customer = new Customer();
+    //this.cust = new Observable<Customer[]>();
+    //this.customers = new Array<Customer>();
+    //this.customer = new Customer();
   }
   ngOnInit()
   {
@@ -39,5 +41,13 @@ export class AppComponent implements OnInit {
     //this.customer = this.cust as Customer[];
 
     //console.log(this.customers); 
+  }
+
+  OnCustomerSelected(customer:Customer){
+      this.coreCustomer= customer;
+  }
+
+  addItem(newItem: string) {
+    this.items.push(newItem);
   }
 }

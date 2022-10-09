@@ -1,7 +1,8 @@
-import { Component, Injectable, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
 import { observable, Observable } from 'rxjs';
 import { Customer } from 'src/app/model/customer.model';
 import { CustomerService } from 'src/app/services/customer.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,11 @@ export class CustomerComponent implements OnInit {
   public title:string='';
   public customers: Customer[];
   public customers$ : Observable<Customer[]>;
+
+  @Output()
+  public OnCustomerSelected = new EventEmitter<Customer>();
+
+  @Output() newItemEvent = new EventEmitter<string>();
 
   @Input()
   public customer: Customer;
@@ -43,6 +49,11 @@ export class CustomerComponent implements OnInit {
   onViewDetail()
   {
     alert('view detail clicked');
+    this.OnCustomerSelected.emit(this.customer);
+  }
+
+  addNewItem(value: string) {
+    this.newItemEvent.emit(value);
   }
 
 }
